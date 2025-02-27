@@ -1,0 +1,38 @@
+[toolchain]
+anchor_version = "0.30.1"
+
+[features]
+resolution = true
+skip-lint = false
+seeds = true
+
+[programs.devnet]
+hwp = "78V1S4FQ256qFjNCS1wbsrDem9AjCfeZdU3cwajdq9SG"
+
+[programs.localnet]
+hwp = "78V1S4FQ256qFjNCS1wbsrDem9AjCfeZdU3cwajdq9SG"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "https://mainnetbeta-rpc.eclipse.xyz"
+wallet = "/home/ragnar/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+
+[test]
+startup_wait = 10000
+shutdown_wait = 2000
+upgradeable = false
+
+[test.validator]
+url = "https://api.devnet.solana.com"
+
+[[test.validator.clone]]
+address = "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+
+[[test.genesis]]
+address = "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+program = "./deps/token.so"

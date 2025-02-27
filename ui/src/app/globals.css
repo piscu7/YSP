@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* Wallet Adapter Stilleri */
+.wallet-adapter-button {
+  @apply bg-purple-700 border-none rounded-lg text-white cursor-pointer text-base font-semibold h-10 px-4 transition-all duration-200;
+}
+
+.wallet-adapter-button:hover {
+  @apply bg-purple-800;
+}
+
+.wallet-adapter-button:disabled {
+  @apply bg-purple-300 cursor-not-allowed;
+}
+
+.wallet-adapter-button-trigger {
+  @apply bg-purple-700;
+}
+
+.wallet-adapter-dropdown {
+  @apply relative;
+}
+
+.wallet-adapter-dropdown-list {
+  @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg mt-2 p-2 absolute right-0 top-full z-50;
+}
+
+.wallet-adapter-dropdown-list-item {
+  @apply flex items-center rounded-md cursor-pointer text-sm font-medium h-10 px-3 whitespace-nowrap hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white;
+}
+
+/* Dark mode için wallet adapter stilleri */
+@media (prefers-color-scheme: dark) {
+  .wallet-adapter-dropdown-list {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .wallet-adapter-dropdown-list-item {
+    color: white;
+  }
+
+  .wallet-adapter-dropdown-list-item:hover {
+    background-color: #374151;
+  }
+} 
