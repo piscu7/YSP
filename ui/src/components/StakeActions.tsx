@@ -134,7 +134,7 @@ export default function StakeActions({ onSuccess }: StakeActionsProps) {
           >
             {isUnstaking ? (
               <>
-                <LoadingSpinner size="sm" white />
+                <LoadingSpinner size="sm" />
                 <span className="ml-2">Processing...</span>
               </>
             ) : (
@@ -152,7 +152,7 @@ export default function StakeActions({ onSuccess }: StakeActionsProps) {
         >
           {isClaiming ? (
             <>
-              <LoadingSpinner size="sm" white />
+              <LoadingSpinner size="sm" />
               <span className="ml-2">Processing...</span>
             </>
           ) : (

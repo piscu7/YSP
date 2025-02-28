@@ -78,10 +78,10 @@ const StakingForm: FC = () => {
     } catch (error) {
       console.error("Initialize error:", error);
       // Vault hesabı zaten oluşturulmuşsa, başarılı olarak kabul et
-      if (error.toString().includes("already in use")) {
+      if (error instanceof Error && error.toString().includes("already in use")) {
         toast.success('Program already initialized!');
       } else {
-        toast.error("Failed to initialize: " + error.toString());
+        toast.error("Failed to initialize: " + (error instanceof Error ? error.toString() : String(error)));
       }
     }
   };
@@ -177,10 +177,10 @@ const StakingForm: FC = () => {
       console.error("Stake error:", error);
       
       // Hata mesajını daha kullanıcı dostu hale getir
-      if (error.toString().includes("insufficient funds")) {
+      if (error instanceof Error && error.toString().includes("insufficient funds")) {
         toast.error("Insufficient funds in your wallet");
       } else {
-        toast.error("Failed to add liquidity: " + error.toString());
+        toast.error("Failed to add liquidity: " + (error instanceof Error ? error.toString() : String(error)));
       }
     } finally {
       setIsLoading(false);
@@ -263,12 +263,12 @@ const StakingForm: FC = () => {
       console.error("Unstake error:", error);
       
       // Hata mesajını daha kullanıcı dostu hale getir
-      if (error.toString().includes("custom program error: 0x1")) {
+      if (error instanceof Error && error.toString().includes("custom program error: 0x1")) {
         toast.error("Insufficient funds in vault. Please add liquidity first.");
-      } else if (error.toString().includes("custom program error: 0x1770")) {
+      } else if (error instanceof Error && error.toString().includes("custom program error: 0x1770")) {
         toast.error("Insufficient liquidity amount");
       } else {
-        toast.error("Failed to remove liquidity: " + error.toString());
+        toast.error("Failed to remove liquidity: " + (error instanceof Error ? error.toString() : String(error)));
       }
     } finally {
       setIsUnstakeLoading(false);
