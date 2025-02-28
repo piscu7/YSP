@@ -73,3 +73,4 @@ This project is developed as part of the Encode Mammothon hackathon. The idea pr
 ## 5. Program & Token Information
 - Program ID: 78V1S4FQ256qFjNCS1wbsrDem9AjCfeZdU3cwajdq9SG
 - PSCU Token Address: Cpe4nvqZ9ym6C2BgnSYJ3Pbup7sGmT9HG4oGPhJcPWxh
+- https://x.com/Eys_pscu
